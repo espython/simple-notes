@@ -1,0 +1,49 @@
+/* Importing our fonts */
+
+@import url('https://fonts.googleapis.com/css?family=B612+Mono:400,400i,700,700i&display=swap');
+/* our main variables */
+
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: var(--mainLight);
+    color: var(--mainLight);
+    font-family: 'B612 Mono', monospace;
+}
+
+#root {
+    height: 100%;
+}
+
+/* nav styles  */
+
+.nav-row {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 9rem;
+}
+
+.main-body {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.main-component {
+    flex-grow: 1;
+}
