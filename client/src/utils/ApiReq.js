@@ -76,15 +76,15 @@ export const logoutUser = context => {
 }
 
 /**
- * create post
+ * create notes and save them on database
  */
-// export const createPost = async postData => {
-//   try {
-//     const response = await axios.post('/api/post', postData)
-//     const { data } = response
-//     console.log('Post data ==> ', data)
-//     return data
-//   } catch (error) {
-//     console.log('Create Post Error ==> ', error)
-//   }
-// }
+export const createNotes = async (noteData, context) => {
+  try {
+    const response = await axios.post('/api/note', noteData)
+    const { data } = response
+    console.log('Note Data ==> ', data)
+    return data
+  } catch (error) {
+    console.log('Save Notes to database Error', error.response)
+  }
+}

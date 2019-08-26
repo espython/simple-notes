@@ -22,6 +22,6 @@ const noteSchema = new mongoose.Schema({
   }
 })
 
-const Note = mongoose.model('posts', noteSchema)
+const Note = mongoose.model('notes', noteSchema)
 
 export default Note

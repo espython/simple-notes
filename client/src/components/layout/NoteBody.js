@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 
 export default class NoteBody extends Component {
+  constructor (props) {
+    super(props)
+  }
   render () {
+    const { note, i } = this.props
+    console.log('Note Title ==> ', note)
     return (
 
-      <div class='card text-white bg-dark mb-3' style='max-width: 18rem;'>
-        <div class='card-header'>Header</div>
-        <div class='card-body'>
-          <h5 class='card-title'>Dark card title</h5>
-          <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div className='card text-white bg-dark mb-3' style={{ 'maxWidth': '18rem' }}>
+        <h4 className='card-header'>{note.title}</h4>
+        <div className='card-body'>
+
+          <p className='card-text'>{note.body}</p>
         </div>
       </div>
 

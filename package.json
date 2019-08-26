@@ -16,6 +16,9 @@
     "heroku-prebuild": "npm install --dev --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -30,9 +33,10 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.0.3",
     "concurrently": "^4.1.1",
     "nodemon": "^1.19.1",
+    "prettier-standard": "^9.1.1",
     "standard": "^12.0.1"
   }
 }

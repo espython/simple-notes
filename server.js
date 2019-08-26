@@ -8,7 +8,7 @@ import bodyParser from 'body-parser'
 import passport from 'passport'
 import passportConfig from './config/passport'
 import { config } from 'dotenv'
-import { users } from './routes'
+import { users, notes } from './routes'
 /**
  * import DotEnv nicely
  */
@@ -42,7 +42,7 @@ passportConfig(passport)
  */
 app.use('/api/users/', users)
 // add post route
-// app.use('/api/', posts)
+app.use('/api/', notes)
 // serve our images
 app.use('/api/uploads', express.static('uploads'))
 /**
