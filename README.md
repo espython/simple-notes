@@ -1,5 +1,5 @@
 # simple-notes
-chingu start project
+chingu tire-3 MERN STACK  project
 
 # Installation Instructions
 
