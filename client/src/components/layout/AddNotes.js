@@ -27,8 +27,9 @@ class AddNotes extends Component {
     const noteData = { title: state.noteTitle, body: state.noteBody, author: userId }
     createNotes(noteData, context).then(res => {
       console.log('Create Notes Response ==> ', res)
-      const notes = []
-      notes.push(res)
+      const notes = context.state.notes
+      console.log('notes 2 ==> ', notes)
+      notes.unshift(res)
       context.setNotes(notes)
     })
     e.target.reset()
@@ -36,7 +37,7 @@ class AddNotes extends Component {
 
   render () {
     return (
-      <div className='card bg-dark p-3 text-light'>
+      <div className='card  border-dark  mb-3 p-3'>
         <form onSubmit={e => this.onSubmit(e)}>
           <div className='form-group'>
             <label htmlFor='exampleInputEmail1'>Title: </label>

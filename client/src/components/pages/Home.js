@@ -25,18 +25,20 @@ getHomeNotes = async (context) => {
   try {
     const notesResponse = await axios.get(`/api/notes`)
     const { data, status } = notesResponse
-    const notes = data.reverse()
-    console.log('notes', { data, status })
+    let notes = data.reverse()
+    console.log('Home-notes', notes)
+
+    notes = context.setNotes(notes)
+    this.setState({ notes })
     console.log('context', context)
-    context.setNotes(notes)
   } catch (error) {
     console.log('home page', error)
   }
 };
 
 render () {
-  const { state, context } = this
-  const { userData, notes } = context.state
+  const { context } = this
+  const { notes } = context.state
 
   console.log('userNotes ==> ', notes)
 
@@ -47,8 +49,8 @@ render () {
         <div className='row d-flex justify-content-center'>
           {notes
             ? notes.map((note, i) => (
-              <div className='col-lg-4'>
-                <NoteBody note={note} i={i} key={i} />
+              <div className='col-lg-4  mt-5 ' key={i}>
+                <NoteBody note={note} i={i} />
               </div>
 
             ))

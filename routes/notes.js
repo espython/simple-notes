@@ -45,4 +45,24 @@ router.get('/notes/', (req, res) => {
   }
 })
 
+/**
+ * Delete Note
+ */
+router.delete('/note/:id/delete', (req, res) => {
+  if (req.params.id) {
+    console.log('ID', req.params.id)
+    try {
+      Note.findByIdAndRemove(req.params.id, (error, note) => {
+        console.log('noteid', req.params.id)
+        // As always, handle any potential errors:
+        if (error) return res.status(500).send(error)
+
+        return res.status(200).json(note)
+      })
+    } catch (error) {
+      console.log('Erroe == > ', error)
+    }
+  }
+})
+
 export default router

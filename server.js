@@ -43,6 +43,8 @@ passportConfig(passport)
 app.use('/api/users/', users)
 // add post route
 app.use('/api/', notes)
+// delete note route
+app.use('/api/', notes)
 // serve our images
 app.use('/api/uploads', express.static('uploads'))
 /**

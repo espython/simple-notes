@@ -26,7 +26,7 @@ class ContextProvider extends Component {
           setUserData: userData => this.setState({ userData }),
           setAuth: isAuth => this.setState({ isAuthenticated: isAuth }),
           setNotes: notes => {
-            this.setState({ notes })
+            this.setState({ notes: notes })
           },
           setProfileNotes: userNotes => this.setState({ userNotes })
         }}

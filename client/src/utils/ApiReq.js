@@ -22,7 +22,6 @@ export const RegisterNewUser = (userData, history, context) => {
  * Login Request
  */
 export const setCurrentUser = (decoded, context) => {
-  console.log('Context ==>', context)
   context.setAuth(true)
   context.setUserData(decoded)
 }
@@ -86,5 +85,30 @@ export const createNotes = async (noteData, context) => {
     return data
   } catch (error) {
     console.log('Save Notes to database Error', error.response)
+  }
+}
+
+/**
+ * dlete note
+ */
+export const deleteNote = async (note, context, i) => {
+  console.log('NOteId ==> ', note._id)
+  const id = note._id
+  const idString = id.toString()
+  var notes = context.state.notes
+
+  console.log('ID ==>', idString)
+  try {
+    const response = await axios.delete(`/api/note/${idString}/delete`, note)
+    const { data } = response
+    // notes = notes.filter(function (item) {
+    //   return item !== i
+    // })
+
+    // context.setNotes(notes)
+    // console.log('Notes  ==> ', notes)
+    return data
+  } catch (error) {
+    console.log('Delete Notes from  database Error', error.response)
   }
 }
