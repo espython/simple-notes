@@ -65,4 +65,25 @@ router.delete('/note/:id/delete', (req, res) => {
   }
 })
 
+/**
+ * Update Note
+ */
+router.post('/note/:id/update', (req, res) => {
+  if (req.params.id) {
+    console.log('ID', req.params.id)
+    console.log('note', req.body)
+    try {
+      Note.findByIdAndUpdate(req.params.id, req.body, (error, note) => {
+        console.log('noteid', req.params.id)
+        // As always, handle any potential errors:
+        if (error) return res.status(500).send(error)
+
+        return res.status(200).json(note)
+      })
+    } catch (error) {
+      console.log('Erroe == > ', error)
+    }
+  }
+})
+
 export default router

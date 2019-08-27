@@ -10,9 +10,12 @@ class ContextProvider extends Component {
     this.state = {
       isAuthenticated: false,
       errors: null,
+      show: false,
       userData: null,
       notes: null,
-      usernotes: null
+      note: null,
+      usernotes: null,
+      isUpdated: false
     }
   }
 
@@ -22,13 +25,16 @@ class ContextProvider extends Component {
       <AppContext.Provider
         value={{
           state: this.state,
+          setNote: note => this.setState({ note }),
+          setShow: show => this.setState({ show }),
           setError: error => this.setState({ errors: error }),
           setUserData: userData => this.setState({ userData }),
           setAuth: isAuth => this.setState({ isAuthenticated: isAuth }),
           setNotes: notes => {
             this.setState({ notes: notes })
           },
-          setProfileNotes: userNotes => this.setState({ userNotes })
+          setProfileNotes: userNotes => this.setState({ userNotes }),
+          setIsUpdated: isUpdated => this.setState({ isUpdated })
         }}
       >
         {children}

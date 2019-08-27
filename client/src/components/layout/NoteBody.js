@@ -7,13 +7,16 @@ export default class NoteBody extends Component {
    * custom methods and handle state
    */
   static contextType = AppContext
+
+  state = {
+    show: false
+  }
   // handle delete note
   onSubmit = (e) => {
     const { context, props } = this
 
     e.preventDefault()
     const { note, i } = props
-
     deleteNote(note, context, i).then(res => {
       console.log('Delete Notes Response ==> ', res)
       const notes = context.state.notes
@@ -22,6 +25,19 @@ export default class NoteBody extends Component {
       context.setNotes(notes)
     })
   }
+  /**
+   * show Model Method
+   */
+  showModel = (e) => {
+    const { context } = this
+    const { note, i } = this.props
+    context.setNote({ note })
+    context.setShow(true)
+  }
+
+  /**
+   * Render Method
+   */
   render () {
     const { context } = this
     const { note, i } = this.props
@@ -35,7 +51,7 @@ export default class NoteBody extends Component {
           <p className='card-text'>{note.body}</p>
         </div>
         <div className='card-footer bg-transparent border-dark d-inline-flex justify-content-between'>
-          <a href='#' className='btn btn-dark' >Edit</a>
+          <a href='#' className='btn btn-dark' onClick={e => this.showModel(e)}>Edit</a>
           <a href='#' className='btn btn-dark' onClick={e => this.onSubmit(e)}>Delete</a>
         </div>
       </div>

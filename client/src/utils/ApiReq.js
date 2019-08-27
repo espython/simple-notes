@@ -112,3 +112,28 @@ export const deleteNote = async (note, context, i) => {
     console.log('Delete Notes from  database Error', error.response)
   }
 }
+
+/**
+ * dlete note
+ */
+export const updateNote = async (noteData, context, noteId) => {
+  // console.log('NOteIdUpdate ==> ', note)
+  // const id = note._id
+  // const idString = id.toString()
+  var notes = context.state.notes
+
+  // console.log('ID ==>', idString)
+  try {
+    const response = await axios.post(`/api/note/${noteId}/update`, noteData)
+    const { data } = response
+    // notes = notes.filter(function (item) {
+    //   return item !== i
+    // })
+
+    // context.setNotes(notes)
+    console.log('Notes  ==> ', data)
+    return data
+  } catch (error) {
+    console.log('Delete Notes from  database Error', error.response)
+  }
+}
