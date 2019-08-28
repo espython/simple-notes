@@ -12,7 +12,7 @@ class ContextProvider extends Component {
       errors: null,
       show: false,
       userData: null,
-      notes: null,
+      notes: [],
       note: null,
       usernotes: null,
       isUpdated: false

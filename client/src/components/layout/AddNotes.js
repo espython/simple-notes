@@ -57,7 +57,7 @@ class AddNotes extends Component {
 
           <div className='d-flex flex-row-reverse'>
             <button className='btn btn-dark' type='submit'>
-              Add Post
+              Add Note
             </button>
           </div>
         </form>

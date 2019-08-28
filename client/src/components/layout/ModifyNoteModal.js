@@ -38,8 +38,9 @@ export default class ModifyNoteModal extends Component {
     }
 
     getHomeNotes = async (context) => {
+      const userId = context.state.userData.id
       try {
-        const notesResponse = await axios.get(`/api/notes`)
+        const notesResponse = await axios.get(`/api/notes/user/${userId}`)
         const { data } = notesResponse
         let notes = data.reverse()
         console.log('Home-notes', notes)

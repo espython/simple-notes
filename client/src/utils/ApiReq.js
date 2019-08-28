@@ -92,21 +92,20 @@ export const createNotes = async (noteData, context) => {
  * dlete note
  */
 export const deleteNote = async (note, context, i) => {
-  console.log('NOteId ==> ', note._id)
+  console.log('NOte ==> ', note)
   const id = note._id
-  const idString = id.toString()
+
   var notes = context.state.notes
 
-  console.log('ID ==>', idString)
   try {
-    const response = await axios.delete(`/api/note/${idString}/delete`, note)
+    const response = await axios.delete(`/api/note/${id}/delete`, note)
     const { data } = response
     // notes = notes.filter(function (item) {
     //   return item !== i
     // })
 
     // context.setNotes(notes)
-    // console.log('Notes  ==> ', notes)
+    console.log('Notes  ==> ', data)
     return data
   } catch (error) {
     console.log('Delete Notes from  database Error', error.response)

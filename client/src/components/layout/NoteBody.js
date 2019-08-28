@@ -19,9 +19,13 @@ export default class NoteBody extends Component {
     const { note, i } = props
     deleteNote(note, context, i).then(res => {
       console.log('Delete Notes Response ==> ', res)
-      const notes = context.state.notes
+      console.log('note Data3 ==>', note)
+      let notes = context.state.notes
       console.log('notes 2 ==> ', notes)
-      notes.pop(res)
+      notes = notes.filter(function (item) {
+        return item !== note
+      })
+      console.log('notes 3 ==> ', notes)
       context.setNotes(notes)
     })
   }
