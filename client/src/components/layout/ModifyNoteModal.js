@@ -55,6 +55,15 @@ export default class ModifyNoteModal extends Component {
 
     render () {
       const { context } = this
+      const { note } = this.props
+      let title = ''
+      let body = ''
+      if (note) {
+        title = note.note.title
+        body = note.note.body
+      }
+      // console.log('noteData 6==>', title)
+      console.log('note 6==> ', note)
       console.log('Show', context.state.show)
       if (!context.state.show) {
         return null
@@ -69,13 +78,14 @@ export default class ModifyNoteModal extends Component {
                 className='form-control'
                 id='noteTitle'
                 onChange={e => this.onChange(e)}
+                defaultValue={title}
               />
             </div>
 
             <div className='form-group'>
               <label htmlFor='exampleFormControlTextarea1'>Note Body: </label>
               <textarea
-                className='form-control' id='noteBody' rows='3' onChange={e => this.onChange(e)} />
+                className='form-control' id='noteBody' rows='3' defaultValue={body} onChange={e => this.onChange(e)} />
             </div>
 
             <div className='d-flex flex-row-reverse'>
