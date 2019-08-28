@@ -86,4 +86,22 @@ router.post('/note/:id/update', (req, res) => {
   }
 })
 
+router.get('/notes/user/:id', (req, res) => {
+  const { id } = req.params
+  console.log('id ==> ', id)
+
+  try {
+    const getNotes = async author => {
+      const notesArray = await Note.find({ author })
+      res.json(notesArray)
+    }
+    getNotes(id)
+
+    // res.json({ posts });
+    // console.log('posts', posts);
+  } catch (error) {
+    console.log('find posts Errors', error)
+  }
+})
+
 export default router

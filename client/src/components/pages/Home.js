@@ -29,8 +29,11 @@ class Home extends Component {
  * Custom Methods
  */
 getHomeNotes = async (context) => {
+  const userId = context.state.userData.id
+  console.log('userId ==>', userId)
+
   try {
-    const notesResponse = await axios.get(`/api/notes`)
+    const notesResponse = await axios.get(`/api/notes/user/${userId}`)
     const { data, status } = notesResponse
     let notes = data.reverse()
     console.log('Home-notes', notes)
